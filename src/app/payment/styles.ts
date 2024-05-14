@@ -12,5 +12,15 @@ export const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         marginVertical: 32,
+    },
+    
+    form: {
+        gap: 7,
+    },
+
+    inline: {
+       flexDirection: 'row',
+       gap: 13, 
+       
     }
 })
