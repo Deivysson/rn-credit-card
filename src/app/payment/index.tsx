@@ -34,20 +34,25 @@ function handleFlipCard(){
     
     return(
         <View style={styles.container}>
-        <CreditCard cardSide={cardSide} />
+        <CreditCard cardSide={cardSide} data={{
+            name,
+            num: num.replace(/(\d{4})(?=\d)/g, '$1 '),
+            date,
+            code
+            }} />
 
         <TouchableOpacity style={styles.button} onPress={handleFlipCard} >
         <Text>Inverter</Text>
         </TouchableOpacity>
 
         <View style={styles.form}>
-            <Input placeholder="Nome do titular" onChangeText={setName} />
-            <Input placeholder="Número do cartão" keyboardType="numeric"  onChangeText={setNum}/>
+            <Input placeholder="Nome do titular" onChangeText={setName} onFocus={showFrontCard} />
+            <Input placeholder="Número do cartão" keyboardType="numeric"  onChangeText={setNum} onFocus={showBackCard} />
         </View>
 
         <View style={styles.inline}>
-            <Input placeholder="01/02" onChangeText={setDate} />
-            <Input placeholder="123" keyboardType="numeric" onChangeText={setCode} />
+            <Input placeholder="01/02" onChangeText={setDate} onFocus={showBackCard} />
+            <Input placeholder="123" keyboardType="numeric" onChangeText={setCode} onFocus={showBackCard} />
         </View>
 
         </View>
